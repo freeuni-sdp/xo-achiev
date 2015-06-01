@@ -1,5 +1,5 @@
 language: java
 deploy:
   provider: heroku
-  api_key: "eecda304-9d18-4ad3-aa84-ce6495aa1777"
+  api_key: $herokuToken
   app: xo-achiev
