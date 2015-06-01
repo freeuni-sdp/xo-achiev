@@ -1,8 +1,5 @@
 language: java
 deploy:
   provider: heroku
-  api_key:
-    secure: P1oIrWZBqzDw7tk7s//TWoGH8XPF8dTRWNNV96LAJoSif2/Q/qypXRcsUc3p3t0QzPE9ZbR3CyOESky2dZJpzPLGOTG0dSqJMsSozyXgdlHbjyEtCvji8aLn4+MRtwFjYwQPJBBK8HLwz3b0Wta3lD0A5Uy1W9QbSWNGadpj5zRLPrRcdqDSwVocmCsIwKFtQWDVU2/z3sjNAW4+FJQEg6xaNeji6bsEp4BXwZF4TNw+Cx65JYrqFj7pC7DglC4AV6lp3Dp7mn6UeTq5DjHx1pL+5MmhP71RopTah2FpO6wWnIkZxHJzIH+m/8llg31ENtle/2Jey2n3ZnpcTlHl5w/zQuTq+uv2+SU/Z+hw4czt8pFQilnaSmTLkHiFVKQn0lEjATBeoGquHozjwmXNCxPzJTAcRGTGjddN1k/teDEuwiKv3gm0huR3ku7DXWN/Fa8u/LkDlZgwo8psiLjmnpLdbOnWdA5IGB725kGL5QCG87q2XiceulunOfw9QT0rChRS/z4z40iSYBSOc7RgVVFWVZESCcqCH7Op6KU0ophwTpaXNPO/amFzmWtfxPU+PSU/WtJAhodmMvaqFXnBBVJtu8+Uy8ERSI66sNuXdsQNc0WY75wg305mXIWbJ46yh4SV5pmztIxpverJbRMCGSGwKKFdEtm+1my2aQCmTsg=
+  api_key: "eecda304-9d18-4ad3-aa84-ce6495aa1777"
   app: xo-achiev
-  on:
-    repo: freeuni-sdp/xo-achiev
