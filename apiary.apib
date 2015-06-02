@@ -1,1 +1,41 @@
-# NOT-YET READY
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# xo-achiev
+
+xo-achiev is simple API that allows saveing and getting user achievements.
+
+
+# xo-achieve API Root [/]
+
+
+## Add User Score [POST/AddUserScore]
+
+You may update or create user data with specified score.
+It takes JSON object
+
++ id    (required,int) -  user id
++ score (required,int) - Score that user got. 
+
++ Request (application/json)
+
+            {
+                "id" : 1023,
+                "score" : 100
+            }
+
++ Response 200
+
+## Retrive a single user achievment [GET/{id}]
+
+Returns object with user score.
+
++ Parameters
+    + id (required, int, `1023`) user id
+    
++ Response 200 (application/json)
+
+                {
+                    "score" : 100,
+                    "id" : 1023
+                }
