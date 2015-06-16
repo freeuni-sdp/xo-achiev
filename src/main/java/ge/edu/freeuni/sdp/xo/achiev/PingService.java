@@ -1,4 +1,4 @@
-package ge.edu.freeuni.sdp.xo.archiev;
+package ge.edu.freeuni.sdp.xo.achiev;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
