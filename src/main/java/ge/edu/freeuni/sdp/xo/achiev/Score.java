@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Score {
 
 	@XmlElement
-	int score;
+	public int score;
 	
 	@Override
 	public String toString() {

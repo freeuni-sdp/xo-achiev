@@ -15,7 +15,7 @@ import javax.ws.rs.WebApplicationException;
 @Path("/{id}")
 @Consumes({ MediaType.APPLICATION_JSON })
 @Produces({ MediaType.APPLICATION_JSON })
-public class AchievService {
+public class FakeAchievService {
 	private FakeDB db = new FakeDB();
 
 	@PUT
@@ -24,7 +24,7 @@ public class AchievService {
 			return Response.status(Status.BAD_REQUEST).build();
 		boolean isChangedDB = db.changeScore(id, score.score);
 		if (isChangedDB)
-			Response.status(Status.OK).build();
+			return Response.status(Status.OK).build();
 		return Response.status(Status.NOT_FOUND).build();
 	}
 	
