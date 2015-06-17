@@ -32,15 +32,17 @@ public class FakeDB {
 	}
 	
 	public UserAchievment getUserAchievment(int ID){
-		int i = 1;
-		for (FakeDBObject o: db){
+		PriorityQueue<FakeDBObject> newdb = new PriorityQueue<FakeDBObject>(10,new FakeDBObjectComparator());
+		for (FakeDBObject o: db)
+			newdb.add(o);
+		for (int i=10; i>0; i--){
+			FakeDBObject o = newdb.poll();
 			if (o.getID() == ID){
 				UserAchievment userAchievment = new UserAchievment();
 				userAchievment.rank = i;
 				userAchievment.score = o.getScore();
 				return userAchievment;
 			}
-			i++;
 		}
 		return null;
 	}
