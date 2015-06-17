@@ -22,6 +22,7 @@ public class UserAchievment {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + rank;
+		result = prime * result + score;
 		return result;
 	}
 
@@ -36,8 +37,12 @@ public class UserAchievment {
 		UserAchievment other = (UserAchievment) obj;
 		if (rank != other.rank)
 			return false;
+		if (score != other.score)
+			return false;
 		return true;
 	}
+
+	
 	
 	
 }

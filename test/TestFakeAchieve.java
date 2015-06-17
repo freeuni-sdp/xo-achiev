@@ -17,6 +17,7 @@ public class TestFakeAchieve extends JerseyTest{
 	
 	@Override
 	protected Application configure() {
+		System.out.println("we are here");
 		return new ResourceConfig(FakeAchievService.class);
 	}
 	
@@ -40,8 +41,7 @@ public class TestFakeAchieve extends JerseyTest{
 	}
 	
 	
-	@Test
-	public void testChangeValidSet() {
+	private void setValid(){
 		Score score = new Score();
 		score.score = 1;
 		Response actual = target("/100").request().put(Entity.entity(score, MediaType.APPLICATION_JSON_TYPE));
@@ -83,6 +83,10 @@ public class TestFakeAchieve extends JerseyTest{
 		actual = target("/109").request().put(Entity.entity(score, MediaType.APPLICATION_JSON_TYPE));
 		assertEquals(Response.Status.OK.getStatusCode(),actual.getStatus());
 	}
+	@Test
+	public void testChangeValidSet() {
+		setValid();
+	}
 	
 	
 	@Test
@@ -104,10 +108,12 @@ public class TestFakeAchieve extends JerseyTest{
 	// This Test is dependent on previous
 	@Test
 	public void testRankOrder() {
+		setValid();
 		UserAchievment achievment = new UserAchievment();
 		UserAchievment achievmentActual;
 
 		achievment.rank = 10;
+		achievment.score = 1;
 		Response actual = target("/100").request().get();
 		
 		achievmentActual = (UserAchievment)actual.readEntity(UserAchievment.class);
@@ -116,6 +122,7 @@ public class TestFakeAchieve extends JerseyTest{
 		
 		
 		achievment.rank = 1;
+		achievment.score = 10;
 		actual = target("/108").request().get();
 		
 		achievmentActual = (UserAchievment)actual.readEntity(UserAchievment.class);
@@ -124,6 +131,7 @@ public class TestFakeAchieve extends JerseyTest{
 		
 		
 		achievment.rank = 2;
+		achievment.score = 9;
 		actual = target("/109").request().get();
 		
 		achievmentActual = (UserAchievment)actual.readEntity(UserAchievment.class);
@@ -132,6 +140,7 @@ public class TestFakeAchieve extends JerseyTest{
 		
 		
 		achievment.rank = 3;
+		achievment.score = 8;
 		actual = target("/107").request().get();
 		
 		achievmentActual = (UserAchievment)actual.readEntity(UserAchievment.class);

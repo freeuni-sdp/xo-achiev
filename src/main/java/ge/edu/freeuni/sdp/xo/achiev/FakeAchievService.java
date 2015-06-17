@@ -16,7 +16,7 @@ import javax.ws.rs.WebApplicationException;
 @Consumes({ MediaType.APPLICATION_JSON })
 @Produces({ MediaType.APPLICATION_JSON })
 public class FakeAchievService {
-	private FakeDB db = new FakeDB();
+	private static FakeDB db = new FakeDB();
 
 	@PUT
 	public Response changeScore(@PathParam("id") int id, Score score){
