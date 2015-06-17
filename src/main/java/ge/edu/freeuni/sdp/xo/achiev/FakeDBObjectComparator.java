@@ -11,8 +11,8 @@ public class FakeDBObjectComparator implements Comparator<FakeDBObject>{
 		if (scoreFirst == scoreSecond)
 			return 0;
 		else if (scoreFirst > scoreSecond)
-			return -1;
-		return 1;
+			return 1;
+		return -1;
 	}
 
 }
