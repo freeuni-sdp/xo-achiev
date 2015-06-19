@@ -27,6 +27,7 @@ public class FakeAchievService {
 		if (isChangedDB)
 			return Response.status(Status.OK).build();
 
+		System.out.println("EXCEPTION");
 		throw new MyCustomException("can't find user with id", Response.Status.NOT_FOUND, 1); // last param can be removed
 	}
 
