@@ -1,5 +1,8 @@
 package ge.edu.freeuni.sdp.xo.achiev;
 
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.Response;
@@ -19,20 +22,20 @@ public class FakeAchievService {
 	private static FakeDB db = new FakeDB();
 
 	@PUT
-	public Response changeScore(@PathParam("id") int id, Score score){
-		if (score == null || score.score<0 )
-			return Response.status(Status.BAD_REQUEST).build();
+	public Response changeScore(@PathParam("id") int id, @Valid Score score){
 		boolean isChangedDB = db.changeScore(id, score.score);
 		if (isChangedDB)
 			return Response.status(Status.OK).build();
-		return Response.status(Status.NOT_FOUND).build();
+
+		System.out.println("EXCEPTION");
+		throw new MyCustomException("can't find user with id", Response.Status.NOT_FOUND, 1); // last param can be removed
 	}
-	
+
 	@GET
 	public UserAchievment getUserAchievment(@PathParam("id") int id) {
 		UserAchievment userAchievment = db.getUserAchievment(id);
 		if (userAchievment == null)
-			throw new WebApplicationException(Status.NOT_FOUND);
+			throw new MyCustomException("can't find user with id", Response.Status.NOT_FOUND, 1);
 		return userAchievment;
-	} 
+	}
 }
