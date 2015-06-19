@@ -26,14 +26,15 @@ public class FakeAchievService {
 		boolean isChangedDB = db.changeScore(id, score.score);
 		if (isChangedDB)
 			return Response.status(Status.OK).build();
-		return Response.status(Status.NOT_FOUND).build();
+
+		throw new MyCustomException("can't find user with id", Response.Status.NOT_FOUND, 1); // last param can be removed
 	}
 
 	@GET
 	public UserAchievment getUserAchievment(@PathParam("id") int id) {
 		UserAchievment userAchievment = db.getUserAchievment(id);
 		if (userAchievment == null)
-			throw new WebApplicationException(Status.NOT_FOUND);
+			throw new MyCustomException("can't find user with id", Response.Status.NOT_FOUND, 1);
 		return userAchievment;
 	}
 }
