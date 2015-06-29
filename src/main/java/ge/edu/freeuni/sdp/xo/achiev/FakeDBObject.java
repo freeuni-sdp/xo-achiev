@@ -3,14 +3,14 @@ package ge.edu.freeuni.sdp.xo.achiev;
 public class FakeDBObject {
 
 	private int score;
-	private int ID;
+	private String ID;
 	
-	public FakeDBObject(int ID,int score){
+	public FakeDBObject(String ID,int score){
 		this.ID = ID;
 		this.score = score;
 	}
 	
-	public int getID() {
+	public String getID() {
 		return ID;
 	}
 	

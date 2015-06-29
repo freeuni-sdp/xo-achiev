@@ -22,7 +22,7 @@ public class FakeAchievService {
 	private static FakeDB db = new FakeDB();
 
 	@PUT
-	public Response changeScore(@PathParam("id") int id, @Valid Score score){
+	public Response changeScore(@PathParam("id") String id, @Valid Score score){
 		boolean isChangedDB = db.changeScore(id, score.score);
 		if (isChangedDB)
 			return Response.status(Status.OK).build();
@@ -32,7 +32,7 @@ public class FakeAchievService {
 	}
 
 	@GET
-	public UserAchievment getUserAchievment(@PathParam("id") int id) {
+	public UserAchievment getUserAchievment(@PathParam("id") String id) {
 		UserAchievment userAchievment = db.getUserAchievment(id);
 		if (userAchievment == null)
 			throw new MyCustomException("can't find user with id", Response.Status.NOT_FOUND, 1);
