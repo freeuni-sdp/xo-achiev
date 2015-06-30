@@ -1,6 +1,5 @@
 package ge.edu.freeuni.sdp.xo.achiev;
 
-import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 import javax.ws.rs.core.MediaType;
@@ -12,7 +11,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
 
 
 @Path("/{id}")
@@ -28,7 +26,7 @@ public class FakeAchievService {
 			return Response.status(Status.OK).build();
 
 		System.out.println("EXCEPTION");
-		throw new MyCustomException("can't find user with id", Response.Status.NOT_FOUND, 1); // last param can be removed
+		throw new MyCustomException("internal server error", Response.Status.INTERNAL_SERVER_ERROR, 1); // last param can be removed
 	}
 
 	@GET
