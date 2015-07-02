@@ -36,4 +36,18 @@ public class AchievService {
 			throw new MyCustomException("internal server error", Response.Status.INTERNAL_SERVER_ERROR, 1); 
 		}
 	}
+	
+	@GET
+	public UserAchievment getUserAchievment(@PathParam("id") String id) {
+		UserAchievment achievement = new UserAchievment();
+		try {
+			AchievEntity achiev = getRepository().get(id);
+			achievement.score = achiev.getScore();
+			achievement.rank = Integer.parseInt(achiev.getPartitionKey());
+			return achievement;
+		} catch (Exception e) {
+			System.out.println("EXCEPTION");
+			throw new MyCustomException("internal server error", Response.Status.INTERNAL_SERVER_ERROR, 1); 
+		}
+	}
 }

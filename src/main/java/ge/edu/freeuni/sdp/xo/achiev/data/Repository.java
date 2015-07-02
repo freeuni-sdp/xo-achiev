@@ -5,4 +5,6 @@ import com.microsoft.azure.storage.StorageException;
 public interface Repository {
 
 	public void insertOrUpdate(AchievEntity achiev) throws StorageException;
+	
+	public AchievEntity get(String id) throws Exception;
 }

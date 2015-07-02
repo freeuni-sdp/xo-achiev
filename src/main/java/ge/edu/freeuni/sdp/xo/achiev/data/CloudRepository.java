@@ -18,4 +18,13 @@ public class CloudRepository implements Repository{
 		table.execute(operation);
 	}
 
+	@Override
+	public AchievEntity get(String id) throws Exception {
+		AchievEntity toGet = new AchievEntity(id, 0);
+		TableOperation query = TableOperation.retrieve(
+				toGet.getPartitionKey(), 
+				toGet.getRowKey(), AchievEntity.class);
+		return table.execute(query).getResultAsType();
+	}
+
 }
