@@ -53,7 +53,7 @@ public class CloudRepository implements Repository {
 				return Integer.compare(o1.getScore(), o2.getScore());
 			}
 		});
-		toGet.setRank(wholeTableList.indexOf(toGet));
+		toGet.setRank(wholeTableList.indexOf(toGet)+1);
 		return toGet;
 	}
 

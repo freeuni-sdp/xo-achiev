@@ -12,7 +12,6 @@ public class AchievEntity extends TableServiceEntity{
 	
 	public AchievEntity(String ID,int score){
 		this.rowKey = ID;
-		final int index = 0;
 		this.partitionKey = PARTITION; // same partition key for every user. 
 		this.score = score;
 	}
