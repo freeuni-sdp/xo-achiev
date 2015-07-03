@@ -47,7 +47,7 @@ public class AchievService {
 			return achievement;
 		} catch (Exception e) {
 			System.out.println("EXCEPTION");
-			throw new MyCustomException("internal server error", Response.Status.INTERNAL_SERVER_ERROR, 1); 
+			throw new MyCustomException("requested user's achievement not found", Response.Status.NOT_MODIFIED, 1); 
 		}
 	}
 }
