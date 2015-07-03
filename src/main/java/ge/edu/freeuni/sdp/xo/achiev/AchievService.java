@@ -47,7 +47,7 @@ public class AchievService {
 			return achievement;
 		} catch (Exception e) {
 			System.out.println("EXCEPTION");
-			throw new MyCustomException("requested users achievement not found", Response.Status.NOT_MODIFIED, 1); 
+			throw new MyCustomException("requested users achievement not found", Response.Status.NOT_FOUND, 1); 
 		}
 	}
 }
