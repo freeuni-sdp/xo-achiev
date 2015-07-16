@@ -8,7 +8,10 @@ public class AchievEntity extends TableServiceEntity{
 	/**
 	 * We have only 1 partition. 
 	 */
-	public final static String PARTITION = "0"; 
+	public final static String PARTITION = "0";
+
+	public AchievEntity(){
+	}
 	
 	public AchievEntity(String ID,int score){
 		this.rowKey = ID;

@@ -32,8 +32,8 @@ public class AchievService {
 			getRepository().insertOrUpdate(achievEntity);
 			return Response.status(Status.OK).build();
 		} catch (StorageException e) {
-			System.out.println("EXCEPTION");
-			throw new MyCustomException("internal server error", Response.Status.INTERNAL_SERVER_ERROR, 1); 
+			e.printStackTrace();
+			throw new MyCustomException("internal server error", Response.Status.INTERNAL_SERVER_ERROR, 1);
 		}
 	}
 	
@@ -46,8 +46,8 @@ public class AchievService {
 			achievement.rank = Integer.parseInt(achiev.getPartitionKey());
 			return achievement;
 		} catch (Exception e) {
-			System.out.println("EXCEPTION");
-			throw new MyCustomException("requested users achievement not found", Response.Status.NOT_FOUND, 1); 
+			e.printStackTrace();
+			throw new MyCustomException("requested users achievement not found", Response.Status.NOT_FOUND, 1);
 		}
 	}
 }
